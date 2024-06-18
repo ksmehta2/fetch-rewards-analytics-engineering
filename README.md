@@ -13,6 +13,8 @@ This repository contains the solution for the Fetch Rewards Coding Exercise for 
 
 ## SQL Queries
 
+###  SQL Dialect: The SQL queries were written using MySQL dialect.
+
 ### Query 1: Top 5 Brands by Receipts Scanned for the Most Recent Month
 
 ```sql
@@ -100,6 +102,9 @@ python data_quality.py
 
 ## Data Quality Evaluation
 
+## Communication with Stakeholders
+
+The data quality evaluation findings and next steps have been communicated to stakeholders. You can find the detailed message [here](data_quality_email.txt).
 
 ### Users Data Quality Evaluation
 
@@ -150,4 +155,5 @@ python data_quality.py
 - totalSpent                 435
 - userId                       0
 - Duplicate Records: 0
+
 
