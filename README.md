@@ -97,3 +97,57 @@ The data_quality.py script evaluates the data quality of the provided JSON files
 ```bash
 python data_quality.py
 ```
+
+## Data Quality Evaluation
+
+
+### Users Data Quality Evaluation
+
+- Total Records: 495
+- Missing Values:
+- _id_$oid              0
+- active                0
+- createdDate_$date     0
+- lastLogin_$date      62
+- role                  0
+- signUpSource         48
+- state                56
+- Duplicate Records: 283
+
+
+### Data Quality Evaluation for Brands:
+- Total Records: 1167
+- Missing Values:
+- _id_$oid          0
+- barcode           0
+- category        155
+- categoryCode    650
+- cpg_$id_$oid      0
+- cpg_$ref          0
+- name              0
+- topBrand        612
+- brandCode       234
+- Duplicate Records: 0
+
+
+
+### Data Quality Evaluation for Receipts:
+- Total Records: 1119
+- Missing Values:
+- _id_$oid                     0
+- bonusPointsEarned          575
+- bonusPointsEarnedReason    575
+- createDate_$date             0
+- dateScanned_$date            0
+- finishedDate_$date         551
+- modifyDate_$date             0
+- pointsAwardedDate_$date    582
+- pointsEarned               510
+- purchaseDate_$date         448
+- purchasedItemCount         484
+- rewardsReceiptItemList     440
+- rewardsReceiptStatus         0
+- totalSpent                 435
+- userId                       0
+- Duplicate Records: 0
+
