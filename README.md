@@ -91,7 +91,7 @@ ORDER BY transaction_count DESC
 LIMIT 1;
 ```
 
-Data Quality Evaluation Script
+Data Quality Evaluation Script : 
 The data_quality.py script evaluates the data quality of the provided JSON files. It identifies missing values, duplicate records, and data type inconsistencies.
 
 ```
