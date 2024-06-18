@@ -16,6 +16,9 @@ This repository contains the solution for the Fetch Rewards Coding Exercise for 
 ###  SQL Dialect: The SQL queries were written using MySQL dialect.
 
 ### Query 1: Top 5 Brands by Receipts Scanned for the Most Recent Month
+### Assumption : 
+- Assumes "most recent month" is defined as the last 30 days from the current date.
+- Assumes receipts with missing createDate are excluded from the analysis.
 
 ```sql
 SELECT b.name, COUNT(r._id) AS receipt_count
@@ -29,6 +32,10 @@ LIMIT 5;
 ```
 
 ### Query 2: Ranking Comparison of Top 5 Brands by Receipts Scanned for Recent and Previous Months
+### Assumption : 
+- Assumes "most recent month" and "previous month" are defined as the last 30 days and the preceding 30 days, respectively.
+- Assumes receipts with missing createDate are excluded from the analysis.
+- Assumes brands not present in the previous month will have a count of zero.
 ```sql
 WITH RecentMonth AS (
     SELECT b.name, COUNT(r._id) AS receipt_count
@@ -53,14 +60,20 @@ LEFT JOIN PreviousMonth pm ON rm.name = pm.name
 ORDER BY recent_receipts DESC
 LIMIT 5;
 ```
-Query 3: Average Spend from Receipts with 'Accepted' or 'Rejected' Status
+### Query 3: Average Spend from Receipts with 'Accepted' or 'Rejected' Status
+### Assumption : 
+- Assumes only receipts with rewardsReceiptStatus of 'Accepted' or 'Rejected' are considered.
+- Assumes receipts with missing totalSpent are excluded from the analysis.
 ```sql
 SELECT rewardsReceiptStatus, AVG(totalSpent) AS average_spend
 FROM Receipts
 WHERE rewardsReceiptStatus IN ('Accepted', 'Rejected')
 GROUP BY rewardsReceiptStatus;
 ```
-Query 4: Total Number of Items Purchased from Receipts with 'Accepted' or 'Rejected' Status
+### Query 4: Total Number of Items Purchased from Receipts with 'Accepted' or 'Rejected' Status
+### Assumption :
+- Assumes only receipts with rewardsReceiptStatus of 'Accepted' or 'Rejected' are considered.
+- Assumes receipts with missing purchasedItemCount are excluded from the analysis.
 ```sql
 
 SELECT rewardsReceiptStatus, SUM(purchasedItemCount) AS total_items
@@ -68,7 +81,12 @@ FROM Receipts
 WHERE rewardsReceiptStatus IN ('Accepted', 'Rejected')
 GROUP BY rewardsReceiptStatus;
 ```
-Query 5: Brand with the Most Spend Among Users Created Within the Past 6 Months
+### Query 5: Brand with the Most Spend Among Users Created Within the Past 6 Months
+### Assumption : 
+- Assumes "users created within the past 6 months" is defined as the last 180 days from the current date.
+- Assumes receipts with missing totalSpent are excluded from the analysis.
+- Assumes brands not associated with any receipts in this period are excluded.
+  
 ```sql
 SELECT b.name, SUM(r.totalSpent) AS total_spend
 FROM Users u
@@ -80,7 +98,11 @@ GROUP BY b.name
 ORDER BY total_spend DESC
 LIMIT 1;
 ```
-Query 6: Brand with the Most Transactions Among Users Created Within the Past 6 Months
+### Query 6: Brand with the Most Transactions Among Users Created Within the Past 6 Months
+### Assumption : 
+- Assumes "users created within the past 6 months" is defined as the last 180 days from the current date.
+- Assumes each receipt counts as a single transaction.
+- Assumes brands not associated with any receipts in this period are excluded.
 ```sql
 SELECT b.name, COUNT(r._id) AS transaction_count
 FROM Users u
