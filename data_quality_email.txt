@@ -1,0 +1,32 @@
+Subject: Data Quality Evaluation Summary and Next Steps
+
+Hello,
+
+I hope you are well. Here’s a brief summary of our recent data quality evaluation:
+
+Summary of Findings: 
+
+Users Data Quality
+
+Total Records: 495
+Issues: Missing lastLogin (62), signUpSource (48), state (56), 283 Duplicate Records
+
+Brands Data Quality
+
+Total Records: 1167
+Issues: Missing category (155), categoryCode (650), topBrand (612), brandCode (234)
+
+Receipts Data Quality
+
+Total Records: 1119
+Issues: Missing bonusPointsEarned (575), bonusPointsEarnedReason (575), finishedDate (551), pointsAwardedDate (582), pointsEarned (510), purchaseDate (448), purchasedItemCount (484), rewardsReceiptItemList (440), totalSpent (435)
+
+Next Steps:
+Priority Fields: Which fields should we prioritize for cleaning?
+Documentation: Providing a data dictionary or schema documentation would be very helpful.
+Performance: We recommend implementing indexing, partitioning strategies, and considering scalable storage solutions to manage growing data volumes.
+Your guidance on these points will help us address the issues effectively. Let me know if you have any questions or need further details.
+
+Best regards,
+
+Kshitij Mehta
